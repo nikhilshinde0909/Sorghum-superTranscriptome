@@ -6,9 +6,8 @@
 VERSION="1.00"
  
 pblat_options="-minScore=200 -minIdentity=98 -threads="
- 
-codeBase = file(bpipe.Config.config.script).parentFile.absolutePath
 load args[0]
+codeBase = file(bpipe.Config.config.script).parentFile.absolutePath
 load codeBase+"/tools.groovy"
 load codeBase+"/blatpipe_stages/blat.groovy"
 
