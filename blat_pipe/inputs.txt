@@ -1,0 +1,9 @@
+// superTranscriptome
+superTrancriptome="/opt/data/home/nikhil/ST_annotation1/SuperDuper.fasta"
+
+// sorghum genomes
+Pangenome="/opt/data/home/nikhil/warm_season_grasses/genomes/sbicolor_pangenome.dna.toplevel.fa"
+Rio="/opt/data/home/nikhil/warm_season_grasses/genomes/sbicolor_rio.dna.toplevel.fa"
+BTX642="/opt/data/home/nikhil/warm_season_grasses/genomes/sbicolor_btx642.dna.toplevel.fa"
+BTX623="/opt/data/home/nikhil/warm_season_grasses/genomes/sorghum_bicolor.dna.toplevel.fa"
+
