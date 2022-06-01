@@ -6,7 +6,7 @@ BTX642 <- read.table('/home/mpilab/pan_transcriptome/BTX642.txt', header = T, se
 
 # Row bind
 library(data.table)
-sorghum <- rbindlist(list(Pangenome, Rio, BTX623, BTX642))
+sorghum <- rbindlist(list(Pangenome, Rio, BTX623, BTX642),  use.names=FALSE)
 
 # Count gene presence number of times
 gene_presence <- data.frame(table(sorghum))
@@ -14,7 +14,7 @@ colnames(gene_presence) <- c("Gene", "Presence_on_genomes")
 
 # write table
 write.table(gene_presence, '/home/mpilab/pan_transcriptome/gene_families_distribution.csv', row.names = F , col.names = T,
-quote = F, sep = ',')
+            quote = F, sep = ',')
 
 # gene classification table 
 gene_distribution <- read.table('/home/mpilab/pan_transcriptome/gene_families_distribution.csv', header = T, sep = ',')
@@ -44,4 +44,3 @@ tiff("/home/mpilab/pan_transcriptome/gene_classification.tiff", units="px", widt
      height=1000, res=140, pointsize = 10)
 bar + coord_polar(theta = "y") + scale_fill_brewer(palette = "Dark2")
 dev.off()
-
