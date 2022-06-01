@@ -13,26 +13,26 @@ gene_presence <- data.frame(table(sorghum))
 colnames(gene_presence) <- c("Gene", "Presence_on_genomes")
 
 # write table
-write.table(gene_presence, '/home/mpilab/pan_transcriptome/gene_distribution.csv', row.names = F , col.names = T,
+write.table(gene_presence, '/home/mpilab/pan_transcriptome/gene_families_distribution.csv', row.names = F , col.names = T,
 quote = F, sep = ',')
 
 # gene classification table 
-gene_distribution <- read.table('/home/mpilab/pan_transcriptome/gene_distribution.csv', header = T, sep = ',')
+gene_distribution <- read.table('/home/mpilab/pan_transcriptome/gene_families_distribution.csv', header = T, sep = ',')
 gene_clssification <- data.frame(table(gene_distribution$Type))
 
-colnames(gene_clssification) <- c("Gene_Type", "Number")
+colnames(gene_clssification) <- c("Gene_family_type", "Number")
 library(dplyr)
 gene_clssification <- gene_clssification %>% arrange(-Number)
 
 # write table
-write.table(gene_clssification, '/home/mpilab/pan_transcriptome/gene_classification.csv', row.names = F , col.names = T,
+write.table(gene_clssification, '/home/mpilab/pan_transcriptome/gene_families_classification.csv', row.names = F , col.names = T,
             quote = F, sep = ',')
 
 # Draw pie chart
 
 library(ggplot2)
 library(tidyverse)
-bar <- ggplot(gene_clssification, aes(x = "Gene Type", y = Number, fill = Gene_Type)) +
+bar <- ggplot(gene_clssification, aes(x = "Gene family type", y = Number, fill = Gene_family_type)) +
   geom_col(width = 1, alpha = 0.7) +
   geom_text(aes(label = Number), position = position_stack(vjust = 0.5)) +
   theme(axis.title.x=element_blank(),
