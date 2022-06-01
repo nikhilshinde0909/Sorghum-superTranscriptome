@@ -9,3 +9,7 @@ In this study we have aligned assembled superTranscripts to 4 different sorghum 
 The BLAT Pipe is automated with bpipe, we have to enter our input file paths in the file called "input.txt". Once input data is can run pipeline with bpipe as follows
 
 {path to bpipe}/bpipe run -n 10 ~/blat_pipe/blat_pipe.groovy inputs.txt
+
+# Output
+
+This pipeline will generate files 'rio.txt', 'btx623.txt', 'pangenome.txt' and 'btx642.txt', are nothing but the list of superTranscripts showed location on respective genome.
