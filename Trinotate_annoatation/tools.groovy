@@ -1,0 +1,13 @@
+// Path to tools used by the pipeline
+bpipe="/opt/data/home/nikhil/anaconda3/bin/bpipe"
+Trinotate="/opt/data/home/nikhil/anaconda3/bin/Trinotate"
+blastx="/opt/data/home/nikhil/anaconda3/bin/blastx"
+blastp"/opt/data/home/nikhil/anaconda3/bin/blastp"
+hmmscan="/opt/data/home/nikhil/anaconda3/bin/hmmscan"
+hmmpress="/opt/data/home/nikhil/anaconda3/bin/hmmpress"
+makeblastdb="/opt/data/home/nikhil/anaconda3/bin/makeblastdb"
+TransDecoder="/opt/data/home/nikhil/anaconda3/bin/TransDecoder.LongOrfs"
+signalp="/opt/data/home/nikhil/Softwares/signalp-4.1/signalp"
+tmhmm="/opt/data/home/nikhil/Softwares/tmhmm-2.0c/bin/tmhmm"
+RnammerTranscriptome="/opt/data/home/nikhil/anaconda3/bin/RnammerTranscriptome.pl"
+rnammer="/opt/data/home/nikhil/Softwares/rnammer/rnammer"
