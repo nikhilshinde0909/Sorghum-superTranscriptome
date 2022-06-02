@@ -33,3 +33,23 @@ signalp = {
        exec "$signalp $signalp_options $output.out $longest_orfs"
     }
 }
+
+tmhmm = {
+    output.dir=homology_dir
+    produce("tmhmm.out"){
+       exec "$tmhmm --short < $longest_orfs > $output.out"
+    }
+}
+
+rnammer = {
+    output.dir=homology_dir
+   {
+       exec "$RnammerTranscriptome --transcriptome $unannotated_regions $rnammer_options $rnammer"
+    }
+}
+
+homology_search = segment { 
+	      blastx + blastp + 
+	      hmmscan + signalp + 
+	      tmhmm + 
+	      rnammer }
