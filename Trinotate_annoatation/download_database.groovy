@@ -8,4 +8,7 @@ VERSION="1.00"
 load args[0]
 codeBase = file(bpipe.Config.config.script).parentFile.absolutePath
 load codeBase+"/tools.groovy"
-load codeBase+"/trinotate_stages/"
+load codeBase+"/trinotate_stages/download_blastdb.groovy"
+
+
+run {blastdb_download}
