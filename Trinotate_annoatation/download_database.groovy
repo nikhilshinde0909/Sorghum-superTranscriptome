@@ -14,11 +14,9 @@ blastdb_dir="blastdb"
 
 download_uniprot = {
     output.dir=blastdb_dir
-  {
-      exec """ 
-      wget https://ftp.uniprot.org/pub/databases/uniprot/current_release/knowledgebase/taxonomic_divisions/uniprot_sprot_plants.dat.gz;
-      gunzip uniprot_sprot_plants.dat.gz
-   """ }
+  produce("uniprot_sprot_plants.dat"){
+      exec "wget  -O - https://ftp.uniprot.org/pub/databases/uniprot/current_release/knowledgebase/taxonomic_divisions/uniprot_sprot_plants.dat.gz| gunzip -c > uniprot_sprot_plants.dat"
+  }
 }
 
 dat2fasta = {
