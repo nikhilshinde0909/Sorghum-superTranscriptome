@@ -5,34 +5,36 @@
 
 VERSION="1.00"
 
-load args[0]
+out_dir="blastdb"
+
 codeBase = file(bpipe.Config.config.script).parentFile.absolutePath
-load codeBase+"/tools.groovy"
+load codeBase+"/tools1.groovy"
 
 //output directory
-blastdb_dir="blastdb"
 
 download_uniprot = {
-    output.dir=blastdb_dir
   produce("uniprot_sprot_plants.dat"){
       exec "wget  -O - https://ftp.uniprot.org/pub/databases/uniprot/current_release/knowledgebase/taxonomic_divisions/uniprot_sprot_plants.dat.gz| gunzip -c > uniprot_sprot_plants.dat"
-  }
+	}
 }
 
-dat2fasta = {
-    output.dir=blastdb_dir
-   produce("uniprot_sprot_plants.fasta"){ 
-    exec "$python $dat2fasta > $output.fasta"
-   }
+dat2fasta = { 
+    exec "$python /opt/data/home/nikhil/Softwares/dat2fasta.py"
 }
 
-makeblastdb = {
-    output.dir=blastdb_dir
-   { 
-    exec "$makeblastdb -in $input.fasta -dbtype prot"
-   }
+makeblastdb = { 
+    exec "$anaconda/makeblastdb -in uniprot_sprot_plants.fa -dbtype prot"
 }
 
-run {
-  download_uniprot + dat2fasta + makeblastdb
+makedir = {
+    exec "mkdir $out_dir"
 }
+
+movedb = {
+    exec "mv uniprot_sprot_plants* $out_dir"
+}
+
+
+nthreads=bpipe.Config.config.maxThreads
+
+run {download_uniprot + dat2fasta + makeblastdb + makedir + movedb}
