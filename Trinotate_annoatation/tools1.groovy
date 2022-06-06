@@ -1,0 +1,10 @@
+// Path to tools used by the pipeline
+bpipe="/opt/data/home/nikhil/anaconda3/bin/bpipe"
+python="/opt/data/home/nikhil/anaconda3/bin/python"
+Trinotate="/opt/data/home/nikhil/anaconda3/bin/Trinotate"
+TransDecoder="/opt/data/home/nikhil/anaconda3/bin/TransDecoder.LongOrfs"
+signalp="/opt/data/home/nikhil/Softwares/signalp-4.1/signalp"
+tmhmm="/opt/data/home/nikhil/Softwares/tmhmm-2.0c/bin/tmhmm"
+RnammerTranscriptome="/opt/data/home/nikhil/Softwares/Trinotate/util/rnammer_support/RnammerTranscriptome.pl"
+rnammer="/opt/data/home/nikhil/Softwares/rnammer/rnammer"
+anaconda="/opt/data/home/nikhil/anaconda3/bin"
